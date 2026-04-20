@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Project Generator v3.0</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS for additional styling -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">AI Project Generator v3.0</h1>
+        <p class="text-center">Generate advanced AI projects with ease. All API keys are securely stored in Replit Secrets.</p>
+        
+        <!-- Form for user input -->
+        <form id="projectForm">
+            <div class="form-group">
+                <label for="projectType">Project Type</label>
+                <select class="form-control" id="projectType" required>
+                    <option value="">Select a project type</option>
+                    <option value="machine-learning">Machine Learning</option>
+                    <option value="natural-language-processing">Natural Language Processing</option>
+                    <option value="computer-vision">Computer Vision</option>
+                    <option value="reinforcement-learning">Reinforcement Learning</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="projectDescription">Project Description</label>
+                <textarea class="form-control" id="projectDescription" rows="3" placeholder="Describe your project idea..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="apiKey">API Key (Optional)</label>
+                <input type="text" class="form-control" id="apiKey" placeholder="Enter your API key if not using Replit Secrets">
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Project</button>
+        </form>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="mt-4" style="display: none;">
+            <h2>Generated Project</h2>
+            <pre id="generatedProject" class="bg-light p-3"></pre>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS for handling form submission -->
+    <script>
+        document.getElementById('projectForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const projectType = document.getElementById('projectType').value;
+            const projectDescription = document.getElementById('projectDescription').value;
+            const apiKey = document.getElementById('apiKey').value;
+
+            // Simulate API call (replace with actual API call)
+            setTimeout(() => {
+                const generatedProject = `Project Type: ${projectType}\nDescription: ${projectDescription}\nAPI Key: ${apiKey || 'Using Replit Secrets'}\n\nGenerated Code:\n# Your AI project code here...`;
+                document.getElementById('generatedProject').textContent = generatedProject;
+                document.getElementById('resultSection').style.display = 'block';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
